@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free simple explanations of Artificial Intelligence for beginners. No jargon, no tools - just clear AI education.">
+    <meta name="keywords" content="AI, Artificial Intelligence, Machine Learning, AI for beginners, AI education, what is AI">
+    <title>AI Demystified | Understand Artificial Intelligence</title>
+    <style>
+        :root {
+            --primary: #6e48aa;
+            --secondary: #9d50bb;
+            --light: #f5f5f5;
+            --dark: #333;
+            --accent: #ff9a56;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+            padding-bottom: 5rem;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo span {
+            font-size: 3rem;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        nav {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        nav li {
+            margin: 0 1rem;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--primary);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        section {
+            margin: 4rem 0;
+            scroll-margin-top: 80px;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 4px;
+            background-color: var(--accent);
+        }
+        
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card-img {
+            height: 200px;
+            background-color: var(--secondary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 4rem;
+            color: white;
+        }
+        
+        .card-content {
+            padding: 1.5rem;
+        }
+        
+        .card h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .interactive-demo {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-top: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .quiz-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .quiz-question {
+            margin-bottom: 1.5rem;
+        }
+        
+        .quiz-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .quiz-option {
+            background-color: var(--light);
+            padding: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .quiz-option:hover {
+            background-color: #e0e0e0;
+        }
+        
+        .quiz-result {
+            font-weight: bold;
+            margin-top: 1rem;
+            min-height: 24px;
+        }
+        
+        button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: var(--secondary);
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+        
+        @media (max-width: 768px) {
+            .quiz-options {
+                grid-template-columns: 1fr;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav li {
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <span>🤖</span>
+            <div>AI Demystified</div>
+        </div>
+        <p class="tagline">Understanding Artificial Intelligence—Without the Hype</p>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#what-is-ai">What is AI?</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#in-your-life">AI in Your Life</a></li>
+            <li><a href="#ethics">Ethics & Risks</a></li>
+            <li><a href="#myths">Myths vs Facts</a></li>
+            <li><a href="#quiz">Quiz</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <section id="what-is-ai">
+            <h2>What is AI?</h2>
+            <p>Artificial Intelligence (AI) is software that can learn patterns from data to make decisions or predictions. It's not magic—it's math and statistics applied in clever ways!</p>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-img">📝</div>
+                    <div class="card-content">
+                        <h3>Rule-based AI</h3>
+                        <p>Follows strict "if-then" rules. Like a spam filter that blocks emails with certain keywords.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-img">🧠</div>
+                    <div class="card-content">
+                        <h3>Machine Learning</h3>
+                        <p>Learns from examples. The more data it sees, the better it gets—like how you improve at games with practice.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-img">🎨</div>
+                    <div class="card-content">
+                        <h3>Generative AI</h3>
+                        <p>Creates new content—text, images, even music—by learning patterns from existing works.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="how-it-works">
+            <h2>How AI Works (No Math!)</h2>
+            <p>Imagine teaching a child to recognize animals:</p>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-img">1️⃣</div>
+                    <div class="card-content">
+                        <h3>1. Input Data</h3>
+                        <p>You show the AI thousands of labeled pictures: "This is a cat, this is a dog."</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-img">2️⃣</div>
+                    <div class="card-content">
+                        <h3>2. Training</h3>
+                        <p>The AI looks for patterns—cats have pointy ears, dogs have longer snouts.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-img">3️⃣</div>
+                    <div class="card-content">
+                        <h3>3. Prediction</h3>
+                        <p>When you show a new picture, the AI guesses based on what it learned.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="interactive-demo">
+                <h3>Try It: AI Learning Simulator</h3>
+                <p>Adjust the slider to see how more training improves accuracy:</p>
+                <input type="range" min="1" max="100" value="30" id="training-slider">
+                <p>Training data: <span id="training-value">30</span> images</p>
+                <p>Current accuracy: <span id="accuracy-value">65%</span></p>
+                <div style="height: 20px; background: #eee; margin-top: 10px; border-radius: 10px;">
+                    <div id="accuracy-bar" style="height: 100%; width: 65%; background: var(--primary); border-radius: 10px;"></div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="in-your-life">
+            <h2>AI in Your Daily Life</h2>
+            <p>You interact with AI more than you think:</p>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-img">📱</div>
+                    <div class="card-content">
+                        <h3>Social Media</h3>
+                        <p>AI decides which posts you see first based on what you've liked before.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-img">🗣️</div>
+                    <div class="card-content">
+                        <h3>Voice Assistants</h3>
+                        <p>Siri and Alexa use AI to understand your voice commands.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-img">💳</div>
+                    <div class="card-content">
+                        <h3>Banking</h3>
+                        <p>AI spots unusual transactions that might be fraud.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="ethics">
+            <h2>Ethics & Risks</h2>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-img">⚖️</div>
+                    <div class="card-content">
+                        <h3>Bias</h3>
+                        <p>If AI learns from biased data (like mostly male resumes), it might discriminate against women.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-img">💼</div>
+                    <div class="card-content">
+                        <h3>Jobs</h3>
+                        <p>AI won't replace all jobs—but it will change many. The key is learning to work with AI tools.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-img">⚠️</div>
+                    <div class="card-content">
+                        <h3>Misinformation</h3>
+                        <p>AI can generate fake but realistic-looking content (deepfakes), making it hard to trust what you see online.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="myths">
+            <h2>Myths vs Facts</h2>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-img">❌</div>
+                    <div class="card-content">
+                        <h3>Myth: AI is Sentient</h3>
+                        <p>Reality: AI mimics intelligence but has no consciousness or feelings—it's advanced pattern matching.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-img">❌</div>
+                    <div class="card-content">
+                        <h3>Myth: AI Will Solve Everything</h3>
+                        <p>Reality: AI is a powerful tool, but it can't think creatively or understand context like humans.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-img">❌</div>
+                    <div class="card-content">
+                        <h3>Myth: AI Will Take Over</h3>
+                        <p>Reality: AI has no desires or goals—it only does what it's programmed to do.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="quiz">
+            <h2>AI Knowledge Quiz</h2>
+            <p>Test what you've learned with this quick quiz!</p>
+            
+            <div class="interactive-demo quiz-container">
+                <div class="quiz-question">
+                    <h3>Which of these is powered by AI?</h3>
+                </div>
+                
+                <div class="quiz-options">
+                    <div class="quiz-option" onclick="checkAnswer(this, true)">Netflix recommendations</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">A microwave timer</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, true)">Google Translate</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">A light switch</div>
+                </div>
+                
+                <div class="quiz-result" id="quiz-result"></div>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <p>Made with ♥ to help people understand AI</p>
+        <p>No ads, no tracking, no jargon</p>
+        <p>© 2023 AI Demystified</p>
+    </footer>
+    
+    <script>
+        // Training slider interaction
+        const slider = document.getElementById('training-slider');
+        const trainingValue = document.getElementById('training-value');
+        const accuracyValue = document.getElementById('accuracy-value');
+        const accuracyBar = document.getElementById('accuracy-bar');
+        
+        slider.addEventListener('input', function() {
+            trainingValue.textContent = this.value;
+            
+            // Simple formula to simulate accuracy improvement
+            const accuracy = Math.min(30 + parseInt(this.value) * 0.7, 98);
+            accuracyValue.textContent = Math.round(accuracy) + '%';
+            accuracyBar.style.width = accuracy + '%';
+        });
+        
+        // Quiz functionality
+        function checkAnswer(selectedElement, isCorrect) {
+            const options = document.querySelectorAll('.quiz-option');
+            const result = document.getElementById('quiz-result');
+            
+            options.forEach(option => {
+                option.style.pointerEvents = 'none'; // Disable further clicks
+                
+                if (option === selectedElement) {
+                    if (isCorrect) {
+                        option.style.backgroundColor = '#a1e6a1'; // Light green
+                    } else {
+                        option.style.backgroundColor = '#ff9e9e'; // Light red
+                    }
+                } else {
+                    // Highlight correct answers if user was wrong
+                    const correct = option.getAttribute('onclick').includes('true');
+                    if (correct) {
+                        option.style.backgroundColor = '#a1e6a1';
+                    }
+                }
+            });
+            
+            if (isCorrect) {
+                result.textContent = '✅ Correct!';
+                result.style.color = 'green';
+            } else {
+                result.textContent = '❌ Not quite! The correct answers are highlighted in green.';
+                result.style.color = 'red';
+            }
+        }
+        
+        // Smooth scrolling for navigation
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
